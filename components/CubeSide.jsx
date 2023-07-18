@@ -11,14 +11,14 @@ export const CubeSide = ({ position, rotation, color, face}) => {
     const faceFill = (face) => {
         if (face == "front-face"){
             return (
-                // <Text position={[0,0,0.01]} fontSize={.5} color="#555"> Andrew Mullins</Text>
-                <Html position={[0,0,0.01]} occlude transform>
+                <Text position={[0,0,0.01]} fontSize={.5} color="#555"> Andrew Mullins</Text>
+                // <Html position={[0,0,0.01]} occlude transform>
 
-                    {/* <div style={{fontSize:"7vmin", backgroundColor:"brown"}}>andrew Mullins</div>
-                    <div style={{fontSize:"7vmin"}}>andrew Mullins</div>
-                    <div style={{fontSize:"7vmin"}}>andrew Mullins</div> */}
-                    {/* <img src="/profile_picture_sq.png"></img> */}
-                </Html>
+                //     {/* <div style={{fontSize:"7vmin", backgroundColor:"brown"}}>andrew Mullins</div>
+                //     <div style={{fontSize:"7vmin"}}>andrew Mullins</div>
+                //     <div style={{fontSize:"7vmin"}}>andrew Mullins</div> */}
+                //     {/* <img src="/profile_picture_sq.png"></img> */}
+                // </Html>
             )
         } else if (face == "projects"){
             return (
