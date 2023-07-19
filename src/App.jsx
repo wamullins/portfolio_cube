@@ -1,9 +1,9 @@
 import './App.css'
-import { Suspense  } from 'react'
-import { Canvas } from '@react-three/fiber'
-import { Display } from '../components/Display'
-import { Nav } from "../components/Nav"
+import { useState } from 'react'
 import { useLocation } from "react-router-dom";
+import CubeContext from './CubeContext'
+import { Display } from './components/Display'
+import { Nav } from "./components/Nav"
 
 
 function App() {
@@ -19,16 +19,20 @@ function App() {
     } else if (location === "/projects") {
         cameraPos = [15,0,0]
     }
-        
+
+    const [cubeInfo, setCubeInfo] = useState({
+        cameraLocation: [5,3,15],
+        startLocation: cameraPos,
+      })
+
+
 
     return (
         <div className="app">
-            <Nav />
-            <Canvas camera={{ position: cameraPos, fov: 20}}>
-                <Suspense fallback={null}>
-                    <Display />
-                </Suspense>
-            </Canvas>
+            <CubeContext.Provider value={{ cubeInfo, setCubeInfo}}>
+                <Nav />
+                <Display />
+            </CubeContext.Provider>
         </div>
     )
 }

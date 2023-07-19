@@ -2,7 +2,7 @@ import { Html, Plane, Box, Text, Text3D, Center} from "@react-three/drei"
 import { useLoader } from '@react-three/fiber'
 import * as THREE from 'three'
 
-import pic from '../public/profile_picture_sq.png'
+import pic from '../../public/profile_picture_sq.png'
 
 // const inter = import('@pmndrs/assets/fonts/inter_regular.woff')
 
@@ -62,7 +62,7 @@ export const CubeSide = ({ position, rotation, color, face}) => {
                 <Center position= {[0,2,0.01]}>
                     <Text3D {...fontProps3D} scale={0.5}>
                         RESUME
-                        <meshMatcapMaterial color={"gold"} reflectivity={1}/>
+                        <meshPhysicalMaterial color={"gold"} reflectivity={1}/>
                     </Text3D>
                 </Center>
             )
