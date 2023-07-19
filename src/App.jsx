@@ -1,38 +1,49 @@
 import './App.css'
 import { useState } from 'react'
+import { Canvas } from '@react-three/fiber'
 import { useLocation } from "react-router-dom";
-import CubeContext from './CubeContext'
 import { Display } from './components/Display'
-import { Nav } from "./components/Nav"
 
 
 function App() {
 
     let location = useLocation().pathname;
-    console.log(location);
 
-    let cameraPos = [5,3,15]
-
-    if (location === "/") {
-        cameraPos = [5,3,15]
-        console.log("i'm home");
-    } else if (location === "/projects") {
-        cameraPos = [15,0,0]
-    }
-
-    const [cubeInfo, setCubeInfo] = useState({
-        cameraLocation: [5,3,15],
-        startLocation: cameraPos,
-      })
-
-
+    const camSideCor = [
+        {
+            id: '/',
+            x: 4,
+            y: 3, 
+            z: 15,
+        },
+       {
+            id: '/projects',
+            x: 15,
+            y: 3, 
+            z: -4,
+        },
+        {
+            id: '/resume',
+            x: -4,
+            y: 3,
+            z: -15,
+        },
+        {
+            id: '/aboutme',
+            x: -15,
+            y: 3,
+            z: 4,
+        }
+    ]
+    
+    const cameraStart = camSideCor.find(side => side.id === location)
 
     return (
         <div className="app">
-            <CubeContext.Provider value={{ cubeInfo, setCubeInfo}}>
-                <Nav />
-                <Display />
-            </CubeContext.Provider>
+            <Canvas camera={{ position: [cameraStart.x, cameraStart.y, cameraStart.z], fov: 20}}>
+                <Display camSideCor={camSideCor}/>
+            </Canvas>
+                
         </div>
     )
 }
