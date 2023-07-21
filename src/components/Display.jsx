@@ -32,14 +32,14 @@ export const Display = ({camSideCor}) => {
                     {/* <directionalLight position={[0, 0, -5]} intensity={.2}/> */}
 
                     {/* for projects page */}
-                    <rectAreaLight position={[5, 0, 0]} intensity={.2} rotation={[0, Math.PI / 2, 0]}/>
-                    <directionalLight position={[5, 3, 0]} intensity={.2}/>
+                    <rectAreaLight position={[5, 0, 0]} intensity={.4} rotation={[0, Math.PI / 2, 0]}/>
+                    <directionalLight position={[10, 1, 0]} intensity={.5}/>
 
                     {/* about me*/}
                     <directionalLight position={[-10, 1, 0]} intensity={.5}/>
 
                     {/* bottom */}
-                    <directionalLight position={[0, -5, 0]} intensity={.5}/>
+                    <directionalLight position={[0, -10, 0]} intensity={.5}/>
                     
 
 

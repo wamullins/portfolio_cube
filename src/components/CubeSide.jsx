@@ -53,7 +53,7 @@ export const CubeSide = ({ position, rotation, color, face}) => {
                     </Text3D>
                     <Text3D {...fontProps3D} scale={0.5}>
                         PROJECTS
-                        <meshBasicMaterial color={"white"} wireframe={true}/>
+                        <meshBasicMaterial color={"black"} wireframe={true}/>
                     </Text3D>
                 </Center>
             )
