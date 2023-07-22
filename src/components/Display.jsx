@@ -19,8 +19,31 @@ export const Display = ({camSideCor}) => {
     return(
         <>
             <group>
-                    {/* <ambientLight /> */}
-                    <pointLight position={[0, 20, 10]} intensity={1.5} />
+                    <hemisphereLight intensity={.1}/>
+                    {/* To backlight the front page */}
+                    <directionalLight position={[-4, 2, -24]} intensity={.1}/>
+
+                    {/* front facing */}
+                    <directionalLight position={[-10, -3, 40]} intensity={.2}/>
+                    <rectAreaLight position={[0,0,5]} intensity={.8}/>
+                    
+                    {/* for the resume page */}
+                    <directionalLight position={[0, 1, -10]} intensity={.2}/>
+                    {/* <directionalLight position={[0, 0, -5]} intensity={.2}/> */}
+
+                    {/* for projects page */}
+                    <rectAreaLight position={[5, 0, 0]} intensity={.4} rotation={[0, Math.PI / 2, 0]}/>
+                    <directionalLight position={[10, 1, 0]} intensity={.5}/>
+
+                    {/* about me*/}
+                    <directionalLight position={[-10, 1, 0]} intensity={.5}/>
+
+                    {/* bottom */}
+                    <directionalLight position={[0, -10, 0]} intensity={.5}/>
+                    
+
+
+
                     <Suspense fallback={null}>
                         < Cube />
                     </Suspense>

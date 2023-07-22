@@ -14,25 +14,25 @@ function App() {
             id: '/',
             x: 4,
             y: 3, 
-            z: 15,
+            z: 24,
         },
        {
             id: '/projects',
-            x: 15,
-            y: 3, 
-            z: -4,
+            x: 22,
+            y: 0, 
+            z: 0,
         },
         {
             id: '/resume',
-            x: -4,
-            y: 3,
-            z: -15,
+            x: 0,
+            y: 0,
+            z: -22,
         },
         {
             id: '/aboutme',
-            x: -15,
-            y: 3,
-            z: 4,
+            x: -22,
+            y: 0,
+            z: 0,
         }
     ]
     
@@ -40,7 +40,7 @@ function App() {
 
     return (
         <div className="app">
-            <Canvas camera={{ position: [cameraStart.x, cameraStart.y, cameraStart.z], fov: 20}}>
+            <Canvas camera={{ position: [cameraStart.x, cameraStart.y, cameraStart.z], fov: 15}}>
                 <Display camSideCor={camSideCor}/>
             </Canvas>
                 

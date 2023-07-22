@@ -25,21 +25,21 @@ export const CubeSide = ({ position, rotation, color, face}) => {
             return (
             <Center position={[0,1,0]}>
                 <Box args={[4,.1,.3]}>
-                    <meshMatcapMaterial color={"#706677"}/>
+                    <meshStandardMaterial color={"#706677"} metalness={1} roughness={0}/>
                 </Box>
                 <Center position= {[0,-.6,0.01]}>
                         <Text3D {...fontProps3D} scale={0.4}>
                             ANDREW MULLINS
-                            <meshMatcapMaterial color={"black"}/>
+                            <meshStandardMaterial color={"silver"}  metalness={1} roughness={0} />
                         </Text3D>
                 </Center>
                 <Box position={[0,-1.2,0]} args={[4,.1,.3]}>
-                    <meshMatcapMaterial color={"#706677"}/>
+                    <meshStandardMaterial color={"#706677"} metalness={1} roughness={0}/>
                 </Box>
                 <Center position= {[0,-1.8,.01]}>
                         <Text3D {...fontProps3D}  scale={0.25} letterSpacing={-0.06}>
                             Full-Stack Software Engineer
-                            <meshMatcapMaterial color={"#565264"}/>
+                            <meshStandardMaterial color={"#565264"} metalness={1} roughness={0}/>
                         </Text3D>
                 </Center>
            </Center>
@@ -49,11 +49,11 @@ export const CubeSide = ({ position, rotation, color, face}) => {
                 <Center position= {[0,2,0.01]}>
                     <Text3D {...fontProps3D} scale={0.5}>
                         PROJECTS
-                        <meshMatcapMaterial color={"black"}/>
+                        <meshStandardMaterial color={"silver"} metalness={1} roughness={0}/>
                     </Text3D>
                     <Text3D {...fontProps3D} scale={0.5}>
                         PROJECTS
-                        <meshBasicMaterial color={"white"} wireframe={true}/>
+                        <meshBasicMaterial color={"black"} wireframe={true}/>
                     </Text3D>
                 </Center>
             )
@@ -62,7 +62,7 @@ export const CubeSide = ({ position, rotation, color, face}) => {
                 <Center position= {[0,2,0.01]}>
                     <Text3D {...fontProps3D} scale={0.5}>
                         RESUME
-                        <meshPhysicalMaterial color={"gold"} reflectivity={1}/>
+                        <meshStandardMaterial color={"gold"} metalness={1} roughness={0}/>
                     </Text3D>
                 </Center>
             )
@@ -71,7 +71,7 @@ export const CubeSide = ({ position, rotation, color, face}) => {
                 <Center position= {[0,2,0.01]}>
                     <Text3D {...fontProps3D} scale={0.5}>
                         ABOUT ME
-                        <meshMatcapMaterial color={"#565264"} />
+                        <meshStandardMaterial color={"#565264"} metalness={1} roughness={.1}/>
                     </Text3D>
                 </Center>
             )
@@ -80,7 +80,7 @@ export const CubeSide = ({ position, rotation, color, face}) => {
                 <Center position= {[0,2,0.01]}>
                     <Text3D {...fontProps3D} scale={0.5}>
                         CONTACT ME
-                        <meshMatcapMaterial color={"#565264"}/>
+                        <meshStandardMaterial color={"#565264"} metalness={1} roughness={.1}/>
                     </Text3D>
                 </Center>
             )
@@ -93,16 +93,16 @@ export const CubeSide = ({ position, rotation, color, face}) => {
                         <meshBasicMaterial attach="material" map={texture} />
                     </mesh>
                     <Box position={[0,-2.1,0]} args={[4.4,.2,.2]}>
-                        <meshMatcapMaterial color={"#D6CFCB"}/>
+                        <meshStandardMaterial color={"white"} metalness={1} roughness={0} />
                     </Box>
                     <Box position={[0,2.1,0]} args={[4.4,.2,.2]}>
-                        <meshMatcapMaterial color={"#D6CFCB"}/>
+                        <meshStandardMaterial color={"white"} metalness={1} roughness={0}/>
                     </Box>
                     <Box position={[2.1,0,0]} args={[.2,4.4,.2]}>
-                        <meshMatcapMaterial color={"#D6CFCB"}/>
+                        <meshStandardMaterial color={"white"} metalness={1} roughness={0}/>
                     </Box>
                     <Box position={[-2.1,0,0]} args={[.2,4.4,.2]}>
-                        <meshMatcapMaterial color={"#D6CFCB"}/>
+                        <meshStandardMaterial color={"white"} metalness={1} roughness={0}/>
                     </Box>
                 </>
             )
@@ -116,7 +116,7 @@ export const CubeSide = ({ position, rotation, color, face}) => {
             
             <mesh>
                 <planeGeometry args={[5,5]} />
-                <meshBasicMaterial color={color} />
+                <meshStandardMaterial color={color} metalness={.5} roughness={.5}/>
             </mesh>
             
 
