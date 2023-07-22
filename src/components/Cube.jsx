@@ -18,8 +18,7 @@ export const Cube = () => {
             {sides.map((side, idx) => (
                 <CubeSide key={idx} position={side.position} rotation={side.rotation} color={side.color} face={side.face}/>
                 ))
-            }
-
+}
             {/* <mesh>
                 <boxGeometry args={[5,5,5]}/>
                 <meshNormalMaterial />
