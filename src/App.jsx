@@ -4,6 +4,7 @@ import { Canvas } from '@react-three/fiber'
 import { useLocation } from "react-router-dom";
 import { Display } from './components/Display'
 
+import CameraContext from './CameraContext';
 
 function App() {
 
@@ -38,13 +39,17 @@ function App() {
     
     const cameraStart = camSideCor.find(side => side.id === location)
 
+    const [cameraAllowed, setCameraAllowed] = useState(true)
+
     return (
-        <div className="app">
-            <Canvas camera={{ position: [cameraStart.x, cameraStart.y, cameraStart.z], fov: 15}}>
-                <Display camSideCor={camSideCor}/>
-            </Canvas>
-                
-        </div>
+        <CameraContext.Provider value={{ cameraAllowed, setCameraAllowed}}>
+            <div className="app">
+                <Canvas camera={{ position: [cameraStart.x, cameraStart.y, cameraStart.z], fov: 15}}>
+                    <Display camSideCor={camSideCor}/>
+                </Canvas>
+             </div>
+        </CameraContext.Provider>
+        
     )
 }
 

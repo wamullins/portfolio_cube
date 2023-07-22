@@ -1,68 +1,84 @@
 import { Html, Plane, Box, Text, Text3D, Center} from "@react-three/drei" 
 import { useLoader } from '@react-three/fiber'
 import * as THREE from 'three'
+import { Suspense } from "react"
 
+import { Project } from './Project'
+import projectsArr from '../assets/projects.json'
 import pic from '../../public/profile_picture_sq.png'
 
 // const inter = import('@pmndrs/assets/fonts/inter_regular.woff')
 
 export const CubeSide = ({ position, rotation, color, face}) => {
 
+    console.log(projectsArr[0].sidedim)
+
     const fontProps2D = {
         font: '/Amiko-Regular-webfont.woff', 
         position: [0,0,0.01], 
         fontSize: .5, 
-        color: "#555" 
+        color: "#555",
     }
-
+   
     const fontProps3D = { 
         font:'/Inter_Bold.json',
         letterSpacing: -0.06,
         height: .2,
+        // bevelEnabled: true,
+        // bevelThickness: .02,
     }
     const faceFill = (face) => {
         if (face == "front-face"){
             return (
             <Center position={[0,1,0]}>
                 <Box args={[4,.1,.3]}>
-                    <meshStandardMaterial color={"#706677"} metalness={1} roughness={0}/>
+                    <meshStandardMaterial color={"#706677"} metalness={1} roughness={0.07}/>
                 </Box>
                 <Center position= {[0,-.6,0.01]}>
                         <Text3D {...fontProps3D} scale={0.4}>
                             ANDREW MULLINS
-                            <meshStandardMaterial color={"silver"}  metalness={1} roughness={0} />
+                            <meshStandardMaterial color={"silver"}  metalness={1} roughness={0.} />
                         </Text3D>
                 </Center>
                 <Box position={[0,-1.2,0]} args={[4,.1,.3]}>
-                    <meshStandardMaterial color={"#706677"} metalness={1} roughness={0}/>
+                    <meshStandardMaterial color={"#706677"} metalness={1} roughness={0.07}/>
                 </Box>
                 <Center position= {[0,-1.8,.01]}>
                         <Text3D {...fontProps3D}  scale={0.25} letterSpacing={-0.06}>
                             Full-Stack Software Engineer
-                            <meshStandardMaterial color={"#565264"} metalness={1} roughness={0}/>
+                            <meshStandardMaterial color={"#565264"} metalness={1} roughness={0.1}/>
                         </Text3D>
                 </Center>
            </Center>
             )
         } else if (face == "projects"){
             return (
-                <Center position= {[0,2,0.01]}>
-                    <Text3D {...fontProps3D} scale={0.5}>
-                        PROJECTS
-                        <meshStandardMaterial color={"silver"} metalness={1} roughness={0}/>
-                    </Text3D>
-                    <Text3D {...fontProps3D} scale={0.5}>
-                        PROJECTS
-                        <meshBasicMaterial color={"black"} wireframe={true}/>
-                    </Text3D>
-                </Center>
+                <group>
+                    <Center position= {[0,2,0.01]}>
+                        <Text3D {...fontProps3D} scale={0.5}>
+                            PROJECTS
+                            <meshStandardMaterial color={"silver"} metalness={1} roughness={0.07}/>
+                        </Text3D>
+                        <Text3D {...fontProps3D} scale={0.5}>
+                            PROJECTS
+                            <meshBasicMaterial color={"black"} wireframe={true}/>
+                        </Text3D>
+                    </Center>
+                    {
+                        projectsArr.map((proj) => (
+                            <Project key={proj.key} title={proj.title} image={proj.image} description={proj.description} technology={proj.technology} deployLink={proj.links.deploy} repoLink={proj.links.git} sidedim={proj.sidedim}/>
+                        ))
+                    }
+                    
+                </group>
+                
             )
         } else if (face == "resume"){
             return (
                 <Center position= {[0,2,0.01]}>
                     <Text3D {...fontProps3D} scale={0.5}>
                         RESUME
-                        <meshStandardMaterial color={"gold"} metalness={1} roughness={0}/>
+                        <meshStandardMaterial color={"gold"} metalness={1} roughness={0.07}/>
                     </Text3D>
                 </Center>
             )
@@ -93,16 +109,16 @@ export const CubeSide = ({ position, rotation, color, face}) => {
                         <meshBasicMaterial attach="material" map={texture} />
                     </mesh>
                     <Box position={[0,-2.1,0]} args={[4.4,.2,.2]}>
-                        <meshStandardMaterial color={"white"} metalness={1} roughness={0} />
+                        <meshStandardMaterial color={"white"} metalness={1} roughness={0.1} />
                     </Box>
                     <Box position={[0,2.1,0]} args={[4.4,.2,.2]}>
-                        <meshStandardMaterial color={"white"} metalness={1} roughness={0}/>
+                        <meshStandardMaterial color={"white"} metalness={1} roughness={0.1}/>
                     </Box>
                     <Box position={[2.1,0,0]} args={[.2,4.4,.2]}>
-                        <meshStandardMaterial color={"white"} metalness={1} roughness={0}/>
+                        <meshStandardMaterial color={"white"} metalness={1} roughness={0.1}/>
                     </Box>
                     <Box position={[-2.1,0,0]} args={[.2,4.4,.2]}>
-                        <meshStandardMaterial color={"white"} metalness={1} roughness={0}/>
+                        <meshStandardMaterial color={"white"} metalness={1} roughness={0.1}/>
                     </Box>
                 </>
             )

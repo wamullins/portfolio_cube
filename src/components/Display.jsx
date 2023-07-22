@@ -1,7 +1,8 @@
-import { Suspense, useRef} from 'react'
+import { Suspense, useRef, useContext} from 'react'
 import { useNavigate } from "react-router-dom";
 import { CameraControls , OrbitControls, Html} from "@react-three/drei"
 import { Cube } from "./Cube"
+import CameraContext from '../CameraContext.jsx'
 
 
 export const Display = ({camSideCor}) => {
@@ -15,6 +16,8 @@ export const Display = ({camSideCor}) => {
         navigate(cor.id)
         cameraControlsRef.current?.setPosition(cor.x, cor.y, cor.z, true)
       };
+
+    const { cameraAllowed } = useContext(CameraContext)
     
     return(
         <>
@@ -24,8 +27,9 @@ export const Display = ({camSideCor}) => {
                     <directionalLight position={[-4, 2, -24]} intensity={.1}/>
 
                     {/* front facing */}
-                    <directionalLight position={[-10, -3, 40]} intensity={.2}/>
-                    <rectAreaLight position={[0,0,5]} intensity={.8}/>
+                    <directionalLight position={[-7, -3, 40]} intensity={.2}/>
+                    {/* <pointLight position={[0,0,4]} intensity={3}/> */}
+                    <rectAreaLight position={[0,0,3]} intensity={3}/>
                     
                     {/* for the resume page */}
                     <directionalLight position={[0, 1, -10]} intensity={.2}/>
@@ -49,10 +53,9 @@ export const Display = ({camSideCor}) => {
                     </Suspense>
                     <CameraControls
                         ref={cameraControlsRef}
-                        enabled= {true}
+                        enabled= {cameraAllowed}
                         verticalDragToForward={false}
                     />
-                    {/* <OrbitControls/>   */}
             </group>
             <Html fullscreen>
                 <div className="nav-links">
