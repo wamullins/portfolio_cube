@@ -36,7 +36,7 @@ export const Display = ({camSideCor}) => {
                     
                     {/* for the resume page */}
                     <directionalLight position={[0, 1, -10]} intensity={.2}/>
-                    {/* <directionalLight position={[0, 0, -5]} intensity={.2}/> */}
+                    <pointLight position={[-1.7,-2.4,-10]} intensity={0.2}/>
 
                     {/* for projects page */}
                     <rectAreaLight position={[5, 0, 0]} intensity={.4} rotation={[0, Math.PI / 2, 0]}/>
