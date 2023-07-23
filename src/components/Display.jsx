@@ -27,9 +27,12 @@ export const Display = ({camSideCor}) => {
                     <directionalLight position={[-4, 2, -24]} intensity={.1}/>
 
                     {/* front facing */}
-                    <directionalLight position={[-7, -3, 40]} intensity={.2}/>
-                    {/* <pointLight position={[0,0,4]} intensity={3}/> */}
-                    <rectAreaLight position={[0,0,3]} intensity={3}/>
+                    <directionalLight position={[-9.5, -3, 40]} intensity={.1}/>
+                    <directionalLight position={[-5.5, -3, 40]} intensity={.1}/>
+                    <pointLight position={[0,0.6,3]} intensity={0.5}/>
+                    <pointLight position={[1.5,0.6,3]} intensity={0.5}/>
+                    <pointLight position={[-1.5,0.6,3]} intensity={0.5}/>
+                    <rectAreaLight position={[0,0,3]} intensity={1}/>
                     
                     {/* for the resume page */}
                     <directionalLight position={[0, 1, -10]} intensity={.2}/>
@@ -42,6 +45,12 @@ export const Display = ({camSideCor}) => {
                     {/* about me*/}
                     <directionalLight position={[-10, 1, 0]} intensity={.5}/>
 
+                    {/* contact me */}
+                    <pointLight position={[-2, 3, -2]} intensity={.2} />
+                    <pointLight position={[2, 3, -2]} intensity={.2} />
+                    <pointLight position={[-1, 3, -2]} intensity={.2} />
+                    <pointLight position={[1, 3, -2]} intensity={.2} />
+
                     {/* bottom */}
                     <directionalLight position={[0, -10, 0]} intensity={.5}/>
                     
@@ -53,16 +62,23 @@ export const Display = ({camSideCor}) => {
                     </Suspense>
                     <CameraControls
                         ref={cameraControlsRef}
-                        enabled= {cameraAllowed}
+                        enabled= {cameraAllowed.cameraControls}
                         verticalDragToForward={false}
                     />
+                     {/* <OrbitControls enabled={cameraAllowed.orbitControls}enablePan={false} enableZoom={false} /> */}
+
             </group>
             <Html fullscreen>
                 <div className="nav-links">
-                    <a onClick={()=> handleClick(camSideCor.find(side => side.id === "/"))} >Home</a>
-                    <a onClick={()=> handleClick(camSideCor.find(side => side.id === "/projects"))}>Projects</a>
-                    <a onClick={()=> handleClick(camSideCor.find(side => side.id === "/resume"))}>Resume</a>
-                    <a onClick={()=> handleClick(camSideCor.find(side => side.id === "/aboutme"))}>About Me</a>
+                    <div onClick={()=> handleClick(camSideCor.find(side => side.id === "/"))} >Home</div>
+                    <div onClick={()=> handleClick(camSideCor.find(side => side.id === "/projects"))}>Projects</div>
+                    <div onClick={()=> handleClick(camSideCor.find(side => side.id === "/resume"))}>Resume</div>
+                    <div onClick={()=> handleClick(camSideCor.find(side => side.id === "/aboutme"))}>About Me</div>
+                    <div onClick={()=> handleClick(camSideCor.find(side => side.id === "/contactme"))}>Contact Me</div>
+                </div>
+                <div className="contact-links">
+                    <a href="https://www.linkedin.com/in/w-andrew-mullins/" target="_blank"><img src="https://static-00.iconduck.com/assets.00/linkedin-with-circle-icon-2048x2048-np6yltn1.png"/></a>
+                    <a href="https://github.com/wamullins" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/25/25231.png"/></a>
                 </div>
             </Html>
         </>

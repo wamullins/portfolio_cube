@@ -34,12 +34,21 @@ function App() {
             x: -22,
             y: 0,
             z: 0,
-        }
+        },
+        {
+            id: '/contactme',
+            x: 0,
+            y: 22,
+            z: 0,
+        },
     ]
     
     const cameraStart = camSideCor.find(side => side.id === location)
 
-    const [cameraAllowed, setCameraAllowed] = useState(true)
+    const [cameraAllowed, setCameraAllowed] = useState({
+        cameraControls: true,
+        // orbitControls: false,
+    })
 
     return (
         <CameraContext.Provider value={{ cameraAllowed, setCameraAllowed}}>

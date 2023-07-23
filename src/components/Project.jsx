@@ -9,7 +9,6 @@ export const Project = ({ title, image, description, technology, deployLink, rep
         height: "70px",
         display: "flex",
         flexDirection: "column",
-
         backgroundImage: `url(${image})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center'
@@ -26,6 +25,7 @@ export const Project = ({ title, image, description, technology, deployLink, rep
         height: "60px",
         display: "flex",
         flexDirection: "column",
+        backgroundColor: "rgba(255, 255, 255, .5)",
     }
 
     const descriptionStyle = {
@@ -35,15 +35,19 @@ export const Project = ({ title, image, description, technology, deployLink, rep
     }
 
     const [hoverState, setHoverState] = useState(false)
-    const { setCameraAllowed } = useContext(CameraContext)
+    const { cameraAllowed, setCameraAllowed } = useContext(CameraContext)
 
     const handleHover = (bool) => {
         setHoverState(bool)
-        setCameraAllowed(!bool)
+        setCameraAllowed({ ...cameraAllowed, cameraControls: !bool})
     }
+    //  switch this to a click ratehr than a hover so that I don't have to deal with the rotating issues
+    // of figure out how to only disbale the zoom feature of the camera instead of the entire camera controls
 
     return (
         <Center position={sidedim}>
+            <Html occulude transform></Html>
+            
             <Html occlude transform> 
                 <div className="project-div" style={divStyle} onPointerOver={() => handleHover(true)} onPointerOut={() => handleHover(false)}>
                     { hoverState ? (
