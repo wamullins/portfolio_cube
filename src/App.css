@@ -18,8 +18,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  height: 30vmin;
-  padding-top: 2vmin;
+  height: 300px;
+  padding-top: 10px;
   z-index: 100;
 }
 
@@ -38,20 +38,34 @@
 }
 
 /* it looks like the only thing I need to change for this to work is "Link" in the nav.jsx file to "NavLink" */
-.active {
+/* .active {
     color: #A6808C;
+} */
+
+.contact-links {
+  position: absolute;
+  right: 0;
+  margin: 4vmin;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.contact-links > a > img {
+  height: 12vmin;
+  border-radius: 50%;
+}
+
+.contact-links > a > img:hover {
+  box-shadow: .7vmin .7vmin 1vmin #565264;
 }
 
 
 /* cube side styling */
-
+/* 
 .cube-side{
     height: 200px;
     width: 200px;
-}
-
-.cube-side > img {
-   
 }
 
 
@@ -71,5 +85,5 @@
   color: #565264;
   font-size: 1vmin;
   text-align: center;
-}
+} */
 
