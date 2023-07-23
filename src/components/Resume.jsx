@@ -1,5 +1,7 @@
 import { Text, Text3D} from "@react-three/drei"
 import { Flex, Box } from '@react-three/flex'
+import resumePDF from "../assets/Resume_2023_07_23.pdf"
+
 export const Resume = () => {
 
     const fontProps2D = {
@@ -17,7 +19,7 @@ export const Resume = () => {
     }
 
     const handleClick = () => {
-        return 
+        window.open(resumePDF)
     }
 
     return(
@@ -72,7 +74,7 @@ export const Resume = () => {
             </Flex>
 
             <Text3D {...fontProps3D} scale={0.2} position={[0.6,-3.8,0]} onClick={handleClick}>
-                Download
+                View PDF
                 <meshStandardMaterial color={"gold"} metalness={1} roughness={0.07}/>
             </Text3D>
            
