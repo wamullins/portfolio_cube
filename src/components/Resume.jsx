@@ -17,7 +17,6 @@ export const Resume = () => {
         font:'/Inter_Bold.json',
         letterSpacing: -0.06,
         height: .2,
-
     }
 
     const handleClick = () => {
