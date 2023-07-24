@@ -2,7 +2,7 @@ import { Suspense, useRef, useContext} from 'react'
 import { useNavigate } from "react-router-dom";
 import { CameraControls , OrbitControls, Html} from "@react-three/drei"
 import { Cube } from "./Cube"
-import CameraContext from '../CameraContext.jsx'
+import MouseControlsContext from '../MouseControlContext.jsx'
 
 
 export const Display = ({camSideCor}) => {
@@ -17,7 +17,7 @@ export const Display = ({camSideCor}) => {
         cameraControlsRef.current?.setPosition(cor.x, cor.y, cor.z, true)
       };
 
-    const { cameraAllowed } = useContext(CameraContext)
+    const { cameraOnProject } = useContext(MouseControlsContext)
     
     return(
         <>
@@ -36,7 +36,7 @@ export const Display = ({camSideCor}) => {
                     
                     {/* for the resume page */}
                     <directionalLight position={[0, 1, -10]} intensity={.2}/>
-                    {/* <directionalLight position={[0, 0, -5]} intensity={.2}/> */}
+                    <pointLight position={[-1.7,-2.4,-10]} intensity={0.2}/>
 
                     {/* for projects page */}
                     <rectAreaLight position={[5, 0, 0]} intensity={.4} rotation={[0, Math.PI / 2, 0]}/>
@@ -62,7 +62,7 @@ export const Display = ({camSideCor}) => {
                     </Suspense>
                     <CameraControls
                         ref={cameraControlsRef}
-                        enabled= {cameraAllowed.cameraControls}
+                        enabled= {cameraOnProject.cameraControls}
                         verticalDragToForward={false}
                     />
                      {/* <OrbitControls enabled={cameraAllowed.orbitControls}enablePan={false} enableZoom={false} /> */}
@@ -80,6 +80,7 @@ export const Display = ({camSideCor}) => {
                     <a href="https://www.linkedin.com/in/w-andrew-mullins/" target="_blank"><img src="https://static-00.iconduck.com/assets.00/linkedin-with-circle-icon-2048x2048-np6yltn1.png"/></a>
                     <a href="https://github.com/wamullins" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/25/25231.png"/></a>
                 </div>
+                {cameraOnProject.projectDescription}
             </Html>
         </>
     )

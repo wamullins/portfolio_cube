@@ -4,7 +4,7 @@ import { Canvas } from '@react-three/fiber'
 import { useLocation } from "react-router-dom";
 import { Display } from './components/Display'
 
-import CameraContext from './CameraContext';
+import MouseControlContext from './MouseControlContext';
 
 function App() {
 
@@ -45,19 +45,19 @@ function App() {
     
     const cameraStart = camSideCor.find(side => side.id === location)
 
-    const [cameraAllowed, setCameraAllowed] = useState({
+    const [cameraOnProject, setCameraOnProject] = useState({
         cameraControls: true,
-        // orbitControls: false,
+        projectDescription: <></>,
     })
 
     return (
-        <CameraContext.Provider value={{ cameraAllowed, setCameraAllowed}}>
+        <MouseControlContext.Provider value={{cameraOnProject, setCameraOnProject}}>
             <div className="app">
                 <Canvas camera={{ position: [cameraStart.x, cameraStart.y, cameraStart.z], fov: 15}}>
                     <Display camSideCor={camSideCor}/>
                 </Canvas>
              </div>
-        </CameraContext.Provider>
+        </MouseControlContext.Provider>
         
     )
 }

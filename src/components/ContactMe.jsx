@@ -6,7 +6,7 @@ export const ContactMe = () => {
 
     const formStyle = {
         width: "160px",
-        height: "90px",
+        height: "95px",
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
@@ -29,13 +29,14 @@ export const ContactMe = () => {
 
     const inputStyle = {
         width: "120px",
-        fontSize: "8px",
+        fontSize: "10px",
         resize: "none",
+        overflowY: "auto",
     }
     
     const buttonStyle = {
-        fontSize: "8px",
-        marginTop: "1px",
+        fontSize: "10px",
+        marginTop: "5px",
     }
     
 

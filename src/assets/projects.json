@@ -16,7 +16,7 @@
         "key": 22,
         "image":"./brainAtlas.png",
         "description":"Brain Atlas allows the user to search through the various structures in our brains using a visual interface and see information about each region. The main purpose of this project iss to tie together information from various sources through a navagatable, sketched brain model and allow users to add additonial research that they think is relevant. At each information page about a various region, the user is also given reseach articles that are related to this region of the brain. Any user can submit an article to be added to the database; however, first the article must be approved by an administrator through the admin portal. In the admin control page, an admin can search for articles by brain region or by unapproved status. THe admin can then choose whether or not to approve the article and have it show up or delete it (admin can also delete articles after they have been approved).",
-        "technology": ["Mongoose", "Exprress", "Node"],
+        "technology": ["Mongoose, Exprress, Node"],
         "links": {
             "git":"https://github.com/wamullins/BrainAtlas",
             "deploy":"https://github.com/wamullins/BrainAtlas"
@@ -28,7 +28,7 @@
         "key": 33,
         "image":"./nebNav.png",
         "description":"Nebula-Nav is an interactive starmap site that allows users to explore the wonders of the universe. With Nebula-Nav, you can navigate through the stars, discover space objects, and learn fascinating information about the cosmos. Let your curiosity guide you as you embark on a space journey!",
-        "technology":["Mongoose", "Exprress", "React", "Node"],
+        "technology":["Mongoose, Exprress, React, Node"],
         "links": {
             "git":" https://github.com/wamullins/Nebula-Nav",
             "deploy":"https://nebula-nav.vercel.app/"

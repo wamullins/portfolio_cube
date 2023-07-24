@@ -82,7 +82,7 @@ export const CubeSide = ({ position, rotation, color, face}) => {
                             <meshStandardMaterial color={"gold"} metalness={1} roughness={0.07}/>
                         </Text3D>
                     </Center>
-                    <group position={[0,1.7,0.01]}>
+                    <group position={[0,1.6,0.01]}>
                         <Resume/>
                     </group>
                     <Box position={[2.2,0,0]} args={[0.1,4.4,0.2]}>
