@@ -124,7 +124,7 @@ export const Resume = () => {
             textColor: "black"
         },
         {
-            text: " Undergraduate Researcher, VUMC Department of Neurology | Nashville, TN",
+            text: "Undergraduate Researcher, VUMC Department of Neurology | Nashville, TN",
             boxFormat: {
                 height:0.1,
                 marginLeft:-2
