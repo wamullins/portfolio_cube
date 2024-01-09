@@ -34,5 +34,19 @@
             "deploy":"https://nebula-nav.vercel.app/"
         },
         "sidedim": [-1.2,-1.4,0.01]
+    },  
+    {
+        "title": "El Capstone",
+        "key": 44,
+        "image":"/elCap.png",
+        "description":"El Capstone is an interactive face of El Capitan that lets users learn about various climbs on it's faces or log personal attempts and sends of the routes. All models created using THREE js (predominantly the react THREE fiber and drei libraries).",
+        "technology":["Mongoose, Exprress, React, Node"],
+        "links": {
+            "git":"https://github.com/wamullins/elcapstone",
+            "deploy":"https://elcapstone-frontend-original.vercel.app/"
+        },
+        "sidedim": [1.2,-1.4,0.01]
     }
+  
+    
 ]

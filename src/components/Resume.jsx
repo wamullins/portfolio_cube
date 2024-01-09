@@ -1,6 +1,6 @@
 import { Text, Text3D} from "@react-three/drei"
 import { Flex, Box } from '@react-three/flex'
-import resumePDF from "../assets/Resume_2023_07_23.pdf"
+import resumePDF from "../assets/Mullins_Resume_12_2023.pdf"
 
 export const Resume = () => {
 
